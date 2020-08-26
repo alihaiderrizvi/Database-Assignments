@@ -8,3 +8,14 @@ E:\OneDrive - Habib University\HABIB\sem 5\DB\assignment 1\assignment 1\assignme
 E:\OneDrive - Habib University\HABIB\sem 5\DB\assignment 1\assignment 1\assignment 1\obj\Debug\assignment 1.csproj.CoreCompileInputs.cache
 E:\OneDrive - Habib University\HABIB\sem 5\DB\assignment 1\assignment 1\assignment 1\obj\Debug\assignment 1.exe
 E:\OneDrive - Habib University\HABIB\sem 5\DB\assignment 1\assignment 1\assignment 1\obj\Debug\assignment 1.pdb
+E:\OneDrive - Habib University\HABIB\Sem 5\DB\Database-Assignments\assignment 1\assignment 1\bin\Debug\assignment 1.exe.config
+E:\OneDrive - Habib University\HABIB\Sem 5\DB\Database-Assignments\assignment 1\assignment 1\bin\Debug\assignment 1.exe
+E:\OneDrive - Habib University\HABIB\Sem 5\DB\Database-Assignments\assignment 1\assignment 1\bin\Debug\assignment 1.pdb
+E:\OneDrive - Habib University\HABIB\Sem 5\DB\Database-Assignments\assignment 1\assignment 1\obj\Debug\assignment 1.csprojAssemblyReference.cache
+E:\OneDrive - Habib University\HABIB\Sem 5\DB\Database-Assignments\assignment 1\assignment 1\obj\Debug\assignment_1.Form1.resources
+E:\OneDrive - Habib University\HABIB\Sem 5\DB\Database-Assignments\assignment 1\assignment 1\obj\Debug\assignment_1.Properties.Resources.resources
+E:\OneDrive - Habib University\HABIB\Sem 5\DB\Database-Assignments\assignment 1\assignment 1\obj\Debug\assignment 1.csproj.GenerateResource.cache
+E:\OneDrive - Habib University\HABIB\Sem 5\DB\Database-Assignments\assignment 1\assignment 1\obj\Debug\assignment 1.csproj.CoreCompileInputs.cache
+E:\OneDrive - Habib University\HABIB\Sem 5\DB\Database-Assignments\assignment 1\assignment 1\obj\Debug\assignment 1.exe
+E:\OneDrive - Habib University\HABIB\Sem 5\DB\Database-Assignments\assignment 1\assignment 1\obj\Debug\assignment 1.pdb
+E:\OneDrive - Habib University\HABIB\Sem 5\DB\Database-Assignments\assignment 1\assignment 1\obj\Debug\assignment_1.Form2.resources
