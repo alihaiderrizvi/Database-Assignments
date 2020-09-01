@@ -15,7 +15,7 @@ namespace assignment_1
         List<Book> books = new List<Book>();
         List<int> Book_Search = new List<int>();
         public static Book Form1_Data;
-        //String format = "{0, -10}{1, -60}{2, -60}";
+        
         String format = "";
         public Form1()
         {
@@ -24,12 +24,13 @@ namespace assignment_1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            books.Add(new Book("0201144719 9780201144710", "An introduction to database systems", 0, 1, "C J Date", Convert.ToDateTime("1 jan 2015"), 1, false, "", Convert.ToDateTime("30 Nov 2015"), 0));
-            books.Add(new Book("0805301453 9780805301458", "Fundamentals of database systems", 0, 1, "Ramez Elmasri; Sham Navathe", Convert.ToDateTime("10 jan 2015"), 2, false, "", Convert.ToDateTime("30 Nov 2015"), 1));
-            books.Add(new Book("1571690867 9781571690869", "Object oriented programming in Java", 1, 2, "Stephen Gilbert; Bill McCarty", Convert.ToDateTime("15 jan 2015"), 1, false, "", Convert.ToDateTime("30 Nov 2015"), 2));
-            books.Add(new Book("1842652478 9781842652473", "Object oriented programming using C++", 1, 2, "B Chandra", Convert.ToDateTime("16 jan 2015"), 2, false, "", Convert.ToDateTime("30 Nov 2015"), 3));
-            books.Add(new Book("0070522618 9780070522619", "Artificial intelligence", 2, 2, "Elaine Rich", Convert.ToDateTime("20 jan 2015"), 1, false, "", Convert.ToDateTime("30 Nov 2015"), 4));
-            books.Add(new Book("0865760047 9780865760042", "The Handbook of artificial intelligence", 2, 2, "	Avron Barr; Edward A Feigenbaum; Paul R Cohen", Convert.ToDateTime("22 jan 2015"), 2, true, "", Convert.ToDateTime("30 Nov 2015"), 5));
+            
+            books.Add(new Book("0201144719 9780201144710", "An introduction to database systems", 0, 1, "C J Date", Convert.ToDateTime("1 jan 2015"), 1, false, "", Convert.ToDateTime("30 Nov 2015")));
+            books.Add(new Book("0805301453 9780805301458", "Fundamentals of database systems", 0, 1, "Ramez Elmasri; Sham Navathe", Convert.ToDateTime("10 jan 2015"), 2, false, "", Convert.ToDateTime("30 Nov 2015")));
+            books.Add(new Book("1571690867 9781571690869", "Object oriented programming in Java", 1, 2, "Stephen Gilbert; Bill McCarty", Convert.ToDateTime("15 jan 2015"), 1, false, "", Convert.ToDateTime("30 Nov 2015")));
+            books.Add(new Book("1842652478 9781842652473", "Object oriented programming using C++", 1, 2, "B Chandra", Convert.ToDateTime("16 jan 2015"), 2, false, "", Convert.ToDateTime("30 Nov 2015")));
+            books.Add(new Book("0070522618 9780070522619", "Artificial intelligence", 2, 2, "Elaine Rich", Convert.ToDateTime("20 jan 2015"), 1, false, "", Convert.ToDateTime("30 Nov 2015")));
+            books.Add(new Book("0865760047 9780865760042", "The Handbook of artificial intelligence", 2, 2, "	Avron Barr; Edward A Feigenbaum; Paul R Cohen", Convert.ToDateTime("22 jan 2015"), 2, false, "", Convert.ToDateTime("30 Nov 2015")));
             read(books);
         }
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
@@ -47,47 +48,11 @@ namespace assignment_1
             this.Close();
         }
 
-        
-        /*
-        private void button1_Click(object sender, EventArgs e)
-        {
-            listBox1.Items.Clear();
-            Book_Search.Clear();
-
-            for (int x = 0; x < books.Count; x++)
-            {
-                if ((string.Compare(textBox1.Text, books[x].Title) == 0 || textBox1.TextLength == 0) && (comboBox1.SelectedIndex == books[x].catIndex || comboBox1.SelectedIndex == -1) && (checkBox1.Checked == books[x].isIssued))
-                {
-                    if (radioButton1.Checked && books[x].type == 0)
-                    {
-                        listBox1.Items.Add(books[x].Title);
-                        Book_Search.Add(x);
-                    }
-                    else if (radioButton2.Checked && books[x].type == 1)
-                    {
-                        listBox1.Items.Add(books[x].Title);
-                        Book_Search.Add(x);
-                    }
-                    else if (radioButton3.Checked && books[x].type == 2)
-                    {
-                        listBox1.Items.Add(books[x].Title);
-                        Book_Search.Add(x);
-                    }
-                    else if (radioButton1.Checked == false && radioButton2.Checked == false && radioButton3.Checked == false)
-                    {
-                        listBox1.Items.Add(books[x].Title);
-                        Book_Search.Add(x);
-                    }
-                }
-            }
-        }
-        */
-
         private void button3_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Do you really want to delete this book?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                //Book_Search.Remove(listBox1.SelectedIndex);
+                
                 listBox1.Items.RemoveAt(listBox1.SelectedIndex);
             }
         }
@@ -100,8 +65,6 @@ namespace assignment_1
             foreach (Book p in books)
             {
                 ListViewItem item = new ListViewItem();
-
-                //String categoryName;
                 if (p.catIndex == 0)
                 {
                     p.catName = "Database Systems" + "\t\t";
@@ -116,25 +79,24 @@ namespace assignment_1
                 }
                 format = p.ISBN + "\t\t" + p.catName + p.Title;
                 listBox1.Items.Add(String.Format(format));
-                //listBox1.Items.Add(item);
             }
         }
-
-
-        /*
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-        */
 
         private void button2_Click(object sender, EventArgs e)
         {
             if (listBox1.SelectedItems.Count != 0)
             {
-  
-                //Form1_Data = books[Book_Search[listBox1.SelectedIndex]];
-                Form1_Data = books[listBox1.SelectedIndex];
+
+                
+                string parsed_ISBN = listBox1.SelectedItem.ToString().Substring(0, 24);
+                foreach(Book p in books)
+                {
+                    if (p.ISBN == parsed_ISBN)
+                    {
+                        Form1_Data = p;
+                        break;
+                    }
+                }
                 Form2 View_Form = new Form2();
                 View_Form.Show();
             }
@@ -147,9 +109,11 @@ namespace assignment_1
 
         private void button1_Click(object sender, EventArgs e)
         {
+            listBox1.Items.Clear();
             int cat = comboBox1.SelectedIndex;
             bool check = checkBox1.Checked;
             int type;
+            string title = textBox1.Text;
             if (radioButton1.Checked)
             {
                 type = 0;
@@ -160,19 +124,92 @@ namespace assignment_1
                 type = 1;
             }
 
-            else
+            else if (radioButton3.Checked)
             {
                 type = 2;
             }
+            else
+            {
+                type = 3;
+            }
 
-            string title = textBox1.Text;
-            List<Book> Book_Search = new List<Book>();
             foreach (Book p in books)
             {
+                string format = "";
+                if (p.catIndex == 0)
+                {
+                    p.catName = "Database Systems" + "\t\t";
+                }
+                else if (p.catIndex == 1)
+                {
+                    p.catName = "OOP" + "\t\t\t";
+                }
+                else if (p.catIndex == 2)
+                {
+                    p.catName = "Artificial Intelligence" + "\t\t";
+                }
 
+                if (p.isIssued == check)
+                {
+                    if (type != 3)
+                    {
+
+                        if (title != "")
+                        {
+                            if (cat != -1)
+                            {
+                                if (title == p.Title && p.type == type && p.catIndex == cat)
+                                {
+                                    format = p.ISBN + "\t\t" + p.catName + p.Title;
+                                }
+                            }
+                            else
+                            {
+                                if (title == p.Title && p.type == type)
+                                {
+                                    format = p.ISBN + "\t\t" + p.catName + p.Title;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if (p.type == type && (p.catIndex == cat || cat == -1))
+                            {
+                                format = p.ISBN + "\t\t" + p.catName + p.Title;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if ((p.catIndex == cat || cat == -1) && (title == "" || p.Title == title))
+                        {
+                            format = p.ISBN + "\t\t" + p.catName + p.Title;
+                        }
+                    }
+                }
+                if (format != "")
+                {
+                    listBox1.Items.Add(format);
+                }
             }
-            read(books);
-            
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void radioButton1_CheckedChanged_1(object sender, EventArgs e)
+        {
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 
@@ -191,9 +228,8 @@ namespace assignment_1
         public bool isIssued;
         public string issuedTo;
         public DateTime issuedOn;
-        public int original_index;
 
-        public Book(string _ISBN, string _title, int _cat, int _subcat, string _authors, DateTime _purchasedOn, int _type, bool _isIssued, string _issuedTo, DateTime _issuedDate, int _original_index)
+        public Book(string _ISBN, string _title, int _cat, int _subcat, string _authors, DateTime _purchasedOn, int _type, bool _isIssued, string _issuedTo, DateTime _issuedDate)
         {
             ISBN = _ISBN;
             Title = _title;
@@ -205,8 +241,6 @@ namespace assignment_1
             isIssued = _isIssued;
             issuedTo = _issuedTo;
             issuedOn = _issuedDate;
-            original_index = _original_index;
-
         }
     }
 }
